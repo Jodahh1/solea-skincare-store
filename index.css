@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-ink font-sans;
+  }
+  ::selection {
+    @apply bg-ink/15;
+  }
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-sand;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-olive/60 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-olive;
+  }
+}
+
+@layer components {
+  .container-wide {
+    @apply mx-auto w-full max-w-8xl px-5 sm:px-7 lg:px-10;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ink text-cream px-7 py-3.5 text-xs uppercase tracking-widest2 font-medium transition-all duration-300 hover:bg-[#4a4138] active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border border-ink/25 text-ink px-7 py-3.5 text-xs uppercase tracking-widest2 font-medium transition-all duration-300 hover:border-ink hover:bg-ink hover:text-cream active:scale-[0.98];
+  }
+  .eyebrow {
+    @apply text-[11px] uppercase tracking-widest2 text-olive font-medium;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
